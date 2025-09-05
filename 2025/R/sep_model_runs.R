@@ -1,6 +1,7 @@
 # September 2025 plan team examinations
 
 # load ----
+# devtools::install_github("BenWilliams-NOAA/RTMButils")
 library(RTMButils)
 # devtools::unload('RTMButils')
 library(tidyverse)
@@ -10,7 +11,7 @@ library(tidyverse)
 library(patchwork)
 theme_set(afscassess::theme_report())
 
-# source(here::here(2025, 'r', "utils.R"))
+source(here::here(2025, 'r', "utils.R"))
 source(here::here(2025, 'r', "models.R"))
 
 # data ----
@@ -60,14 +61,10 @@ data1 = data
 data1$catch_wt = 1
 data1$catch_cv = rep(0.10, length(data1$years))
 
-# GAP re-stratified data
-# data1 = readRDS(here::here(2025, "research", 'gap', 'dat.rds'))
-
 # management models -----
 m25.0 = run_model(base, data, pars) # base model run
 m25.1 = run_model(srv_like, data1, pars) # update survey biomass likelihood
 m25.2 = run_model(slx_scale, data1, pars1) # update selectivity time block
-# m25.3 = run_model(ctch_like, data1, pars1) # update selectivity time block
 
 fit_check(m25.0)
 fit_check(m25.1)
@@ -86,6 +83,18 @@ m25.2_rwt = run_model_reweight(model=slx_scale, data=data1, pars=pars1,  iters =
 data1$fish_age_wt = 2.756654 ; data1$srv_age_wt = 1.990389; data1$fish_size_wt = 0.5251724
 m25.2a = run_model(slx_scale, data1, pars1) # update selectivity time block
 
+#### retro/pro ----
+data$fish_age_wt = 1;   data$srv_age_wt =1; data$fish_size_wt = 1
+retro_m25.0 <- run_retro(m25.0, data, pars, model=base, year = 2025, folder = "sep_pt", subfolder = "m25.0")
+pro_m25.0 <- run_prospective(m25.0, data, pars, model=base, year = 2025, folder = "sep_pt", subfolder = "m25.0")
+
+# use updated functions to deal with the chang ein likelihood weights  
+data1$fish_age_wt = 2.756654 ; data1$srv_age_wt = 1.990389; data1$fish_size_wt = 0.5251724  
+retro_m25.2a <- run_retro_update(m25.2a, data1, pars1, model=slx_scale, year = 2025, folder = "sep_pt", subfolder = "m25.2a")
+pro_m25.2a <- run_prospective_update(m25.2a, data1, pars1, model=slx_scale, year = 2025, folder = "sep_pt", subfolder = "m25.2a")
+
+length(m25.0a$obj$par)
+length(m25.2a$obj$par)
 # reset weights
 data$fish_age_wt = data$srv_age_wt = data$fish_size_wt = data1$fish_age_wt = data1$srv_age_wt = data1$fish_size_wt = 1
 
@@ -101,9 +110,12 @@ left_join(get_likes(m25.0, model = 'm25.0'),
               dplyr::mutate(item = ifelse(item=="like_catch", "ssqcatch", item))) %>%
   left_join(get_likes(m25.2a, model = 'm25.2a', addl = "catch_like") %>% 
               dplyr::mutate(item = ifelse(item=="like_catch", "ssqcatch", item))) %>%
-  mutate(Likelihood = c("Catch", "Survey", "Fish age", "Survey age", "Fish size", "Recruitment", "F regularity", "SPR penalty", "M prior", "q prior", "Sigma R prior", "Sub total")) %>% 
-  relocate(Likelihood, m25.0, m25.1, m25.2, m25.0a, m25.1a, m25.2a) %>% 
+  mutate(nLL = c("Catch", "Survey", "Fish age", "Survey age", "Fish size", "Recruitment", "F regularity", "SPR penalty", "M prior", "q prior", "Sigma R prior", "Sub total", "# Parameters")) %>% 
+  relocate(nLL, m25.0, m25.1, m25.2, m25.0a, m25.1a, m25.2a) %>% 
   select(-item) %>% 
+  mutate(across(where(is.numeric), 
+               ~ ifelse(nLL == "# Parameters", sprintf("%.0f", .), sprintf("%.4f", .))
+  )) %>% 
   vroom::vroom_write(here::here(2025, "sep_pt", "tables", "like_tbl_slx.csv"), delim=",")
   flextable::flextable() %>%
   flextable::autofit() %>%
@@ -376,16 +388,16 @@ ggsave(here::here(2025, 'sep_pt', 'figs', 'catch.png'), units = "in", width=6.5,
   out$annual
   ggsave(here::here(2025, 'sep_pt', 'figs', 'm25b_rwt_fish_size_annual.png'), units = "in", width=6.5, height=6.5)  
   
-#### retro ----
-  
-  
-# GAP restrat ----
+
+# GAP restrat
   # not presented
+  # GAP re-stratified data
+  # data1 = readRDS(here::here(2025, "research", 'gap', 'dat.rds'))
   
 m25c = run_model(slx_scale, data1, pars1) # base model run
 fit_check(m25c)
 model_test(m25b, m25c)
-### francis reweight ----
+### francis reweight
 m25c_rwt = run_model_reweight(model=slx_scale, data=data1, pars=pars1,  iters = 10)
 
 data2 = data
@@ -448,10 +460,10 @@ flextable::flextable() %>%
   
   
   
-  
-# research models ----
+# not presented ----  
+# research models
 # not currently being presented
-# ###  data ----
+# ###  data
 # vast = read_csv("2023/dev/mb_vs_db/vast_2023.csv") %>% 
 #   select(year = Time, biomass_mt = Estimate, se = `Std. Error for Estimate`) %>% 
 #   filter(biomass_mt>0) %>% 
@@ -477,13 +489,13 @@ flextable::flextable() %>%
 # model_test(m25, m25a)
 # model_test(m25a, m25b)
 # 
-# ## francis reweight ----
+# ## francis reweight
 # m25_rwt = run_model_reweight(model=base, data=data, pars=pars,  iters = 10)
 # m25a_rwt = run_model_reweight(model=srv_like, data=data, pars=pars,  iters = 10)
 # m25b_rwt = run_model_reweight(model=slx_scale, data=data, pars=pars1,  iters = 10)
 # 
-# ## mgmt results ----
-# ### tables ----
+# ## mgmt results
+# ### tables
 # left_join(get_likes(m25, model = 'm25'),
 #           get_likes(m25a, model = 'm25a')) %>% 
 #   left_join(get_likes(m25b, model = '25b')) %>%
@@ -573,7 +585,7 @@ flextable::flextable() %>%
 # model_test(m25b, m25c)
 # model_test(m25c, m25.1)
 # 
-# #### tables ----
+# #### tables
 # left_join(get_likes(m25c, model = 'm25c'),
 #           get_likes(m25c_rwt, model = '25c-rwt')) %>% 
 #   left_join(get_likes(m25.2, model = 'm25.2')) %>%
@@ -914,9 +926,9 @@ flextable::flextable() %>%
 #   scico::scale_color_scico_d(palette = 'vik')
 # 
 # 
-# # figs ----
+# # figs
 # 
-# # spawn bio ----
+# # spawn bio
 # m25$rpt$spawn_bio %>% 
 #   as.data.frame() %>% 
 #   mutate(year = m25$rpt$years,
@@ -957,7 +969,7 @@ flextable::flextable() %>%
 #   theme(legend.position = c(0.8, 0.22))
 # ggsave(here::here(2025, 'sep_pt', 'figs', 'spawn_bio.png'), units = "in", width=6.5, height=6.5)
 # 
-# # tot bio ----
+# # tot bio
 # m25$rpt$tot_bio %>% 
 #   as.data.frame() %>% 
 #   mutate(year = m25$rpt$years,
