@@ -55,66 +55,84 @@ pars1 = list(log_M = log(0.0614),
             log_F50 = 0,
             sigmaR = 1.7)
 
+# update catch likelihood data 
+data1 = data
+data1$catch_wt = 1
+data1$catch_cv = rep(0.10, length(data1$years))
+
 # GAP re-stratified data
-data1 = readRDS(here::here(2025, "research", 'gap', 'dat.rds'))
+# data1 = readRDS(here::here(2025, "research", 'gap', 'dat.rds'))
 
 # management models -----
-m25 = run_model(base, data, pars) # base model run
-m25a = run_model(srv_like, data, pars) # update survey biomass likelihood
-m25b = run_model(slx_scale, data, pars1) # update selectivity time block
+m25.0 = run_model(base, data, pars) # base model run
+m25.1 = run_model(srv_like, data1, pars) # update survey biomass likelihood
+m25.2 = run_model(slx_scale, data1, pars1) # update selectivity time block
+# m25.3 = run_model(ctch_like, data1, pars1) # update selectivity time block
 
-fit_check(m25)
-fit_check(m25a)
-fit_check(m25b)
-## letter or number
-model_test(m25, m25a)
-model_test(m25a, m25b)
+fit_check(m25.0)
+fit_check(m25.1)
+fit_check(m25.2)
 
 ## francis reweight ----
-m25_rwt = run_model_reweight(model=base, data=data, pars=pars,  iters = 10)
-m25a_rwt = run_model_reweight(model=srv_like, data=data, pars=pars,  iters = 10)
-m25b_rwt = run_model_reweight(model=slx_scale, data=data, pars=pars1,  iters = 10)
+m25.0_rwt = run_model_reweight(model=base, data=data, pars=pars,  iters = 10)
+data$fish_age_wt = 2.867722;   data$srv_age_wt = 2.011436; data$fish_size_wt = 0.4984959
+m25.0a = run_model(base, data, pars) # base model run
+
+m25.1_rwt = run_model_reweight(model=srv_like, data=data1, pars=pars,  iters = 10)
+data1$fish_age_wt = 2.848452; data1$srv_age_wt = 1.998594; data1$fish_size_wt = 0.4985743
+m25.1a = run_model(srv_like, data1, pars) # update survey biomass likelihood
+
+m25.2_rwt = run_model_reweight(model=slx_scale, data=data1, pars=pars1,  iters = 10)
+data1$fish_age_wt = 2.756654 ; data1$srv_age_wt = 1.990389; data1$fish_size_wt = 0.5251724
+m25.2a = run_model(slx_scale, data1, pars1) # update selectivity time block
+
+# reset weights
+data$fish_age_wt = data$srv_age_wt = data$fish_size_wt = data1$fish_age_wt = data1$srv_age_wt = data1$fish_size_wt = 1
 
 ## mgmt results ----
 ### tables ----
-left_join(get_likes(m25, model = 'm25'),
-          get_likes(m25a, model = 'm25a')) %>% 
-  left_join(get_likes(m25b, model = '25b')) %>%
-  left_join(get_likes(m25_rwt, model = '25-rwt')) %>%
-  left_join(get_likes(m25a_rwt, model = '25a-rwt')) %>%
-  left_join(get_likes(m25b_rwt, model = '25b-rwt')) %>%
+left_join(get_likes(m25.0, model = 'm25.0'),
+          get_likes(m25.0a, model = 'm25.0a')) %>% 
+  left_join(get_likes(m25.1, model = 'm25.1', addl = "catch_like") %>% 
+              dplyr::mutate(item = ifelse(item=="like_catch", "ssqcatch", item))) %>%
+  left_join(get_likes(m25.1a, model = 'm25.1a', addl = "catch_like") %>% 
+              dplyr::mutate(item = ifelse(item=="like_catch", "ssqcatch", item))) %>%
+  left_join(get_likes(m25.2, model = 'm25.2', addl = "catch_like") %>% 
+              dplyr::mutate(item = ifelse(item=="like_catch", "ssqcatch", item))) %>%
+  left_join(get_likes(m25.2a, model = 'm25.2a', addl = "catch_like") %>% 
+              dplyr::mutate(item = ifelse(item=="like_catch", "ssqcatch", item))) %>%
   mutate(Likelihood = c("Catch", "Survey", "Fish age", "Survey age", "Fish size", "Recruitment", "F regularity", "SPR penalty", "M prior", "q prior", "Sigma R prior", "Sub total")) %>% 
-  relocate(Likelihood) %>% 
+  relocate(Likelihood, m25.0, m25.1, m25.2, m25.0a, m25.1a, m25.2a) %>% 
   select(-item) %>% 
   vroom::vroom_write(here::here(2025, "sep_pt", "tables", "like_tbl_slx.csv"), delim=",")
   flextable::flextable() %>%
   flextable::autofit() %>%
   flextable::width(j = 1, width = 1.5) 
 
-left_join(get_pars(m25b, model = 'm25b'),
-          get_pars(m25a, model = 'm25a')) %>% 
-  left_join(get_pars(m25, model = 'm25')) %>% 
-  left_join(get_pars(m25_rwt, model = 'm25-rwt')) %>%
-  left_join(get_pars(m25a_rwt, model = 'm25a-rwt')) %>% 
-  left_join(get_pars(m25b_rwt, model = 'm25b-rwt')) %>%
+left_join(get_pars(m25.2, model = 'm25.2'),
+          get_pars(m25.0a, model = 'm25.0a')) %>% 
+  left_join(get_pars(m25.1, model = 'm25.1')) %>% 
+  left_join(get_pars(m25.1a, model = 'm25.1a')) %>%
+  left_join(get_pars(m25.0, model = 'm25.0')) %>% 
+  left_join(get_pars(m25.2a, model = 'm25.2a')) %>%
   mutate(Item = c("M",  'a50-1', 'a50-2', 'a50-3', 'a50-4', 'delta-1', 'delta-2', 
                   'delta-3', 'delta-4', 'a50 survey', 'delta survey', "q", "sigma R", "Log mean recruitment", 
                   "Log mean F", "2024 Total biomass", "2024 Spawning biomass", "2024 OFL", 
                   "2024 F OFL", " 2024 ABC", "2024 F ABC")) %>% 
-  relocate(Item, m25, m25a, m25b) %>% 
+  relocate(Item, m25.0, m25.1, m25.2, m25.0a, m25.1a) %>%
   select(-item) %>% 
   vroom::vroom_write(here::here(2025, "sep_pt", "tables", "par_tbl_slx.csv"), delim=",")
   flextable::flextable() %>% 
   flextable::autofit() %>%
   flextable::width(j = 1, width = 2)  %>% 
   flextable::colformat_double(
-    i = c(14:16,18),
+    i = c(16:18,20),
     big.mark = ",", 
     digits = 0, 
     na_str = "N/A"
   ) %>% 
   flextable::colformat_double(
-    i = c(1:13,17,19),
+    i = c(1:15,19,21),
     big.mark = ",", 
     digits = 4, 
     na_str = "N/A"
@@ -122,186 +140,248 @@ left_join(get_pars(m25b, model = 'm25b'),
 
 ### figs ----
   
+#### catch pred ----
+m25.0$rpt$catch_pred %>% 
+  as.data.frame() %>% 
+  mutate(year = m25.0$rpt$years,
+         id = "m25.0") %>% 
+  bind_rows(
+    m25.0a$rpt$catch_pred %>% 
+      as.data.frame() %>% 
+      mutate(year = m25.0$rpt$years,
+             id = "m25.0a")) %>% 
+  bind_rows(
+    m25.1$rpt$catch_pred %>% 
+      as.data.frame() %>% 
+      mutate(year = m25.0$rpt$years,
+             id = "m25.1")) %>% 
+  bind_rows(
+    m25.1a$rpt$catch_pred %>% 
+      as.data.frame() %>% 
+      mutate(year = m25.0$rpt$years,
+             id = "m25.1a")) %>% 
+  bind_rows(
+    m25.2$rpt$catch_pred %>% 
+      as.data.frame() %>% 
+      mutate(year = m25.0$rpt$years,
+             id = "m25.2")) %>% 
+  bind_rows(
+    m25.2a$rpt$catch_pred %>% 
+      as.data.frame() %>% 
+      mutate(year = m25.0$rpt$years,
+             id = "m25.2a")
+  ) %>%
+  pivot_longer(-c(year, id)) %>% 
+  # mutate(Model = factor(id, levels = c("m25.0", "m25.a", "m25.b", "m25.1", "m25.2", "m25.3"))) %>% 
+  # mutate(block = as.numeric(gsub("V", "", name))) %>%
+  # filter(!year %in% c(1:35)) %>% 
+  ggplot(aes(year, value, color = id)) + 
+  geom_line() +
+  scico::scale_color_scico_d("Model", palette = 'batlow', end = 0.8) +
+  expand_limits(y = 0) +
+  theme(legend.position = c(0.8, 0.42)) +
+  ylab("Catch (t)") +
+  xlab("Year")
+ggsave(here::here(2025, 'sep_pt', 'figs', 'catch.png'), units = "in", width=6.5, height=6.5)
+
 #### spawn bio ----
-  m25$rpt$spawn_bio %>% 
+  m25.0$rpt$spawn_bio %>% 
     as.data.frame() %>% 
-    mutate(year = m25$rpt$years,
-           id = "m25") %>% 
+    mutate(year = m25.0$rpt$years,
+           id = "m25.0") %>% 
     bind_rows(
-      m25a$rpt$spawn_bio %>% 
+      m25.0a$rpt$spawn_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25a")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.0a")) %>% 
     bind_rows(
-      m25_rwt$rpt$spawn_bio %>% 
+      m25.1$rpt$spawn_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25-rwt")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.1")) %>% 
     bind_rows(
-      m25a_rwt$rpt$spawn_bio %>% 
+      m25.1a$rpt$spawn_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25a-rwt")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.1a")) %>% 
     bind_rows(
-      m25b_rwt$rpt$spawn_bio %>% 
+      m25.2$rpt$spawn_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25b-rwt")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.2")) %>% 
     bind_rows(
-      m25b$rpt$spawn_bio %>% 
+      m25.2a$rpt$spawn_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25b")
-    ) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.2a")
+    ) %>%
     pivot_longer(-c(year, id)) %>% 
+    # mutate(Model = factor(id, levels = c("m25.0", "m25.a", "m25.b", "m25.1", "m25.2", "m25.3"))) %>% 
     # mutate(block = as.numeric(gsub("V", "", name))) %>%
     # filter(!year %in% c(1:35)) %>% 
     ggplot(aes(year, value, color = id)) + 
     geom_line() +
-    scico::scale_color_scico_d("Model", palette = 'romaO') +
+    scico::scale_color_scico_d("Model", palette = 'batlow', end = 0.8) +
     expand_limits(y = 0) +
-    theme(legend.position = c(0.8, 0.22))
+    theme(legend.position = c(0.8, 0.22)) +
+    ylab("Spawning Biomass (t)") +
+    xlab("Year")
   ggsave(here::here(2025, 'sep_pt', 'figs', 'spawn_bio.png'), units = "in", width=6.5, height=6.5)
   
 #### tot bio ----
-  m25$rpt$tot_bio %>% 
+  m25.0$rpt$tot_bio %>% 
     as.data.frame() %>% 
-    mutate(year = m25$rpt$years,
-           id = "m25") %>% 
+    mutate(year = m25.0$rpt$years,
+           id = "m25.0") %>% 
     bind_rows(
-      m25a$rpt$tot_bio %>% 
+      m25.0a$rpt$tot_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25a")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.0a")) %>% 
     bind_rows(
-      m25_rwt$rpt$tot_bio %>% 
+      m25.1$rpt$tot_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25-rwt")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.1")) %>% 
     bind_rows(
-      m25a_rwt$rpt$tot_bio %>% 
+      m25.1a$rpt$tot_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25a-rwt")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.1a")) %>% 
     bind_rows(
-      m25b_rwt$rpt$tot_bio %>% 
+      m25.2$rpt$tot_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25b-rwt")) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.2")) %>% 
     bind_rows(
-      m25b$rpt$tot_bio %>% 
+      m25.2a$rpt$tot_bio %>% 
         as.data.frame() %>% 
-        mutate(year = m25$rpt$years,
-               id = "m25b")
-    ) %>% 
+        mutate(year = m25.0$rpt$years,
+               id = "m25.2a")) %>% 
     pivot_longer(-c(year, id)) %>% 
-    filter(id %in% c("m25", "m25a", "m25b")) %>% 
+    # filter(id %in% c("m25", "m25a", "m25b")) %>% 
     # mutate(block = as.numeric(gsub("V", "", name))) %>%
     # filter(!year %in% c(1:35)) %>% 
     ggplot(aes(year, value, color = id)) + 
     geom_line() +
-    scico::scale_color_scico_d("Model", palette = 'romaO') +
+    scico::scale_color_scico_d("Model", palette = 'batlow') +
     expand_limits(y = 0) +
-    theme(legend.position = c(0.8, 0.22))
+    theme(legend.position = c(0.8, 0.22)) +
+    xlab("Year") + 
+    ylab("Total biomass (t)")
   ggsave(here::here(2025, 'sep_pt', 'figs', 'tot_bio.png'), units = "in", width=6.5, height=6.5)
   
   
 #### survey slx ----  
-  m25$rpt$slx_srv %>% 
+  m25.0$rpt$slx_srv %>% 
     as.data.frame() %>% 
     mutate(age = 2:29,
-           id = "m25") %>% 
+           id = "m25.0") %>% 
     bind_rows(
-      m25a$rpt$slx_srv %>% 
+      m25.0a$rpt$slx_srv %>% 
         as.data.frame() %>% 
         mutate(age = 2:29,
-               id = "m25a")) %>% 
+               id = "m25.0a")) %>% 
     bind_rows(
-      m25_rwt$rpt$slx_srv %>% 
-        as.data.frame() %>% 
+      m25.1$rpt$slx_srv %>%
+        as.data.frame() %>%
         mutate(age = 2:29,
-               id = "m25-rwt")) %>% 
+               id = "m25.1")) %>%
     bind_rows(
-      m25a_rwt$rpt$slx_srv %>% 
-        as.data.frame() %>% 
+      m25.1a$rpt$slx_srv %>%
+        as.data.frame() %>%
         mutate(age = 2:29,
-               id = "m25a-rwt")) %>% 
+               id = "m25.1a")) %>%
     bind_rows(
-      m25b_rwt$rpt$slx_srv %>% 
-        as.data.frame() %>% 
+      m25.2$rpt$slx_srv %>%
+        as.data.frame() %>%
         mutate(age = 2:29,
-               id = "m25b-rwt")) %>% 
+               id = "m25.2")) %>%
     bind_rows(
-      m25b$rpt$slx_srv %>% 
-        as.data.frame() %>% 
+      m25.2a$rpt$slx_srv %>%
+        as.data.frame() %>%
         mutate(age = 2:29,
-               id = "m25b")
-    ) %>% 
+               id = "m25.2a")
+    ) %>%
     pivot_longer(-c(age, id)) %>% 
+    # mutate(Model = factor(id, levels = c("m25.0", "m25.a", "m25.b", "m25.1", "m25.2", "m25.3"))) %>% 
     # mutate(year = as.numeric(gsub("V", "", name))) %>%
     # filter(!year %in% c(1:35)) %>% 
     ggplot(aes(age, value, color = id)) + 
     geom_line() +
-    scico::scale_color_scico_d("Model", palette = 'roma') +
+    scico::scale_color_scico_d("Model", palette = 'batlow') +
     expand_limits(x = 0, y = 0) +
-    theme(legend.position = c(0.8, 0.2))
+    theme(legend.position = c(0.8, 0.2)) +
+    xlab("Age") +
+    ylab("Survey Selectivity")
   
   ggsave(here::here(2025, 'sep_pt', 'figs', 'srv_slx.png'), units = "in", width=6.5, height=6.5)  
 
 #### fishery slx ----
-  m25$rpt$slx_block %>% 
+  m25.0$rpt$slx_block %>% 
     as.data.frame() %>% 
     rename(B1 = V1, B2 = V2, B3 = V3, B4 = V4) %>% 
     mutate(age = 2:29,
-           model = "m25") %>% 
+           model = "m25.0") %>% 
     bind_rows(
-      m25b$rpt$slx_block %>% 
+      m25.0a$rpt$slx_block %>% 
         as.data.frame() %>% 
         rename(B1 = V1, B2 = V2, B3 = V3, B4 = V4) %>% 
         mutate(age = 2:29,
-               model = "m25b")
+               model = "m25.0a")
     ) %>%
     bind_rows(
-      m25_rwt$rpt$slx_block %>% 
+      m25.2$rpt$slx_block %>% 
         as.data.frame() %>% 
         rename(B1 = V1, B2 = V2, B3 = V3, B4 = V4) %>% 
         mutate(age = 2:29,
-               model = "m25-rwt")
+               model = "m25.2")
     ) %>%
     bind_rows(
-      m25b_rwt$rpt$slx_block %>% 
+      m25.2a$rpt$slx_block %>% 
         as.data.frame() %>% 
         rename(B1 = V1, B2 = V2, B3 = V3, B4 = V4) %>% 
         mutate(age = 2:29,
-               model = "m25b-rwt")
+               model = "m25.2a")
     ) %>% 
     pivot_longer(-c(age, model)) %>% 
+    # mutate(Model = factor(model, levels = c("m25.0", "m25.a", "m25.b", "m25.1", "m25.2", "m25.3"))) %>% 
     ggplot(aes(age, value, color = name)) + 
     geom_line() +
     scico::scale_color_scico_d("Block", palette = 'roma') +
-    facet_wrap(~ model)
+    facet_wrap(~model) +
+    xlab("Age") +
+    ylab("Fishery selectivity")
   
   ggsave(here::here(2025, 'sep_pt', 'figs', 'fish_slx_block.png'), units = "in", width=6.5, height=6.5)  
   
   
 #### comp residuals ----
-  out = resids(obs = data$fish_size_obs, pred = m25b_rwt$rpt$fish_size_pred, yrs = data$fish_size_yrs, iss=data$fish_size_iss, ind = data$length_bins, label = 'Length (cm)')
+  out = resids(obs = data$fish_size_obs, pred = m25.2a$rpt$fish_size_pred, yrs = data$fish_size_yrs, iss=data$fish_size_iss, ind = data$length_bins, label = 'Length (cm)')
   out = resids(obs = data$fish_age_obs, 
-               pred = m25b$rpt$fish_age_pred, 
+               pred = m25.2a$rpt$fish_age_pred, 
                yrs = data$fish_age_yrs, 
                iss=data$fish_age_iss, 
                ind = data$ages, label = 'Age')
-  out = resids(obs = data1$srv_age_obs, pred = m25b$rpt$srv_age_pred, yrs = data$srv_age_yrs, iss=data1$srv_age_iss, ind = data$ages, label = 'Age')
+  out = resids(obs = data1$srv_age_obs, pred = m25.2a$rpt$srv_age_pred, yrs = data$srv_age_yrs, iss=data1$srv_age_iss, ind = data$ages, label = 'Age')
   
- (out$pearson + out$osa) /
-    (out$agg + out$ss) + plot_layout(guides = "collect")
+ (out$pearson + out$osa) + plot_layout(guides = "collect")
+  ggsave(here::here(2025, 'sep_pt', 'figs', 'm25b_rwt_fish_size_osa.png'), units = "in", width=6.5, height=6.5)  
+  
+
+  out$agg / (out$qq + out$ss) + plot_layout(guides = "collect")
+  ggsave(here::here(2025, 'sep_pt', 'figs', 'm25b_rwt_fish_size_agg.png'), units = "in", width=6.5, height=6.5)  
+  
   
   out$annual
-
+  ggsave(here::here(2025, 'sep_pt', 'figs', 'm25b_rwt_fish_size_annual.png'), units = "in", width=6.5, height=6.5)  
+  
 #### retro ----
   
   
 # GAP restrat ----
+  # not presented
+  
 m25c = run_model(slx_scale, data1, pars1) # base model run
 fit_check(m25c)
 model_test(m25b, m25c)
