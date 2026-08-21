@@ -77,22 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-dashboard/quarto-dashboard.js"></script>
-<script src="site_libs/quarto-dashboard/stickythead.js"></script>
-
-
-
-<script src="site_libs/quarto-dashboard/web-components.js" type="module"></script>
-<script src="site_libs/quarto-dashboard/components.js"></script>
-
+<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -124,10 +112,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="quarto-dashboard nav-fixed dashboard-fill fullcontent quarto-light">
-
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -162,50 +177,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-<header id="quarto-dashboard-header">
-<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
-  <div class="navbar-container container-fluid">
-    <button class="navbar-toggler hidden" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>    
-
-
-    <div class="navbar-brand-container">
-
-
-      <div class="navbar-title">
-        <div class="navbar-title-text"><a href="#">Structural Updates</a></div>
-        
-        
-      </div>
-    </div>
-</div>
-</nav>
-</header></header>
+</header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#catch-negative-log-likelihood" id="toc-catch-negative-log-likelihood" class="nav-link active" data-scroll-target="#catch-negative-log-likelihood">Catch negative log likelihood</a></li>
+  <li><a href="#survey-biomass-negative-log-likelihood" id="toc-survey-biomass-negative-log-likelihood" class="nav-link" data-scroll-target="#survey-biomass-negative-log-likelihood">Survey biomass negative log likelihood</a></li>
+  <li><a href="#composition-data-likelihoods" id="toc-composition-data-likelihoods" class="nav-link" data-scroll-target="#composition-data-likelihoods">Composition Data Likelihoods</a></li>
+  <li><a href="#implementation-changes" id="toc-implementation-changes" class="nav-link" data-scroll-target="#implementation-changes">Implementation changes</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
+<main class="content" id="quarto-document-content">
 
-<div class="bslib-grid-item html-fill-item bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Structural Updates</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="catch-negative-log-likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="catch-negative-log-likelihood">Catch negative log likelihood</h2>
 <p>Code for the November model runs is available on <a href="https://github.com/afsc-assessments/goa_pop/blob/main/2026/R/alt_model_runs.R">github</a>.</p>
 <p>Previously, the catch component of the negative log-likelihood (<span class="math inline">\(\text{nLL}\)</span>) was evaluated using a weighted sum-of-squares (ssqcatch) on log-transformed catch data padded with a small constant (<span class="math inline">\(g = 10^{-5}\)</span>) to prevent <span class="math inline">\(\log(0)\)</span> errors: <span class="math display">\[\text{ssqcatch} = \sum_y w_{\text{catch}, y} \left( \log(C_{\text{obs}, y} + g) - \log(\hat{C}_{\text{pred}, y} + g) \right)^2\]</span> where <span class="math inline">\(C_{\text{obs}, y}\)</span> is the observed catch (catch_obs), <span class="math inline">\(\hat{C}_{\text{pred}, y}\)</span> is predicted catch (catch_pred), and <span class="math inline">\(w_{\text{catch}, y}\)</span> (catch_wt) was a fixed annual weight set to <span class="math inline">\(50.0\)</span>.</p>
 <p>This formulation omitted normalizing constants and implicitly assigned observation uncertainty via the weight multiplier <span class="math inline">\(w_{\text{catch}}\)</span> rather than an explicit coefficient of variation (<span class="math inline">\(\text{CV}\)</span>). In the RTMB implementation, catch likelihoods are evaluated using the full normal probability density function on log-transformed catches (<span class="math inline">\(\log(C_{\text{obs}} + g) \sim \mathcal{N}(\mu, \sigma_c^2)\)</span>): <span class="math display">\[\text{like\_catch} = -\left[ \sum_y \ln f_{\mathcal{N}}\left( \log(C_{\text{obs}, y} + g) \,;\, \mu_y, \sigma_{c, y} \right) \right] \times w_{\text{catch}}\]</span> where the mean is <span class="math inline">\(\mu_y = \log(\hat{C}_{\text{pred}, y} + g)\)</span>, and the log-scale standard deviation <span class="math inline">\(\sigma_{c, y}\)</span> (sigma_catch) is derived directly from an input catch CV (catch_cv): <span class="math display">\[\sigma_{c, y} = \sqrt{\log(\text{catch\_cv}_y^2 + 1.0)}\]</span> Under this formulation, catch_wt is set to <span class="math inline">\(1.0\)</span>, and catch observation uncertainty is explicitly specified using an input CV of <span class="math inline">\(0.10\)</span> (which corresponds to the <span class="math inline">\(\sim 10\%\)</span> CV implied by the legacy weight of 50). Log-normal bias correction is omitted for catch because its high precision renders the bias term negligible.</p>
 <p>The specific code changes for the catch likelihood are:</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code html-fill-item html-fill-container" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## catch ----</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## catch ----</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Cat <span class="ot">&lt;-</span> Fat <span class="sc">/</span> Zat <span class="sc">*</span> Nat <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> Sat)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>catch_pred <span class="ot">&lt;-</span> <span class="fu">colSums</span>(Cat <span class="sc">*</span> waa)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">switch</span>(</span>
@@ -225,41 +243,18 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
 <p>where <code>catch_wt</code> = 50 for each year in the ADMB version. To the full lognormal distribution, where <code>catch_wt = 1.0</code> and a CV of 0.1 is provided for each year.</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="survey-biomass-negative-log-likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="survey-biomass-negative-log-likelihood">Survey biomass negative log likelihood</h2>
 <p>Previously, the survey biomass negative log-likelihood (<span class="math inline">\(\text{nLL}\)</span>) was evaluated using a simplified sum-of-squares approximation of the log-normal distribution:</p>
 <p><span class="math display">\[\text{nLL} = \lambda \sum_y \frac{\left( \log(I_y) - \log(\hat{I}_y) \right)^2}{2 \cdot \text{CV}_y^2}\]</span> where <span class="math inline">\(I_y\)</span> is the observed survey index (srv_obs), <span class="math inline">\(\hat{I}_y\)</span> is the predicted biomass (srv_pred), and <span class="math inline">\(\text{CV}_y = \frac{\text{SE}(I_y)}{I_y}\)</span> (srv_sd / srv_obs). This formulation omits normalizing constants and does not account for a log-normal bias correction term (<span class="math inline">\(\frac{1}{2}\sigma^2\)</span>) often used to ensure the model’s arithmetic expectation aligns with predicted survey biomass. In the updated RTMB implementation, survey index likelihoods are evaluated using the built-in normal density function on the log-transformed observations, <span class="math inline">\(\log(I_y) \sim \mathcal{N}(\mu_y, \sigma_y^2)\)</span>:</p>
 <p><span class="math display">\[\text{nLL} = -\lambda \sum_y \ln \left[ f_{\mathcal{N}}\left(\log(I_y) \,;\, \mu_y, \sigma_y\right) \right]\]</span> where the log-scale standard deviation <span class="math inline">\(\sigma_y\)</span> (log_sd) is calculated as:</p>
 <p><span class="math display">\[\sigma_y = \sqrt{\log(1 + \text{CV}_y^2)}\]</span> The location parameter <span class="math inline">\(\mu_y\)</span> (mu) includes a configurable bias correction toggle (do_bias_correct):</p>
 <p><span class="math display">\[\mu_y = \begin{cases} \log(\hat{I}_y) - \frac{1}{2}\sigma_y^2 &amp; \text{if } \texttt{do\_bias\_correct} = \text{TRUE} \\ \log(\hat{I}_y) &amp; \text{if } \texttt{do\_bias\_correct} = \text{FALSE} \end{cases}\]</span> Because <code>RTMB::dnorm()</code> incorporates normalizing terms (<span class="math inline">\(\log(\sigma_y) + \frac{1}{2}\log(2\pi)\)</span>) and optionally applies the bias-correction offset, total <span class="math inline">\(\text{nLL}\)</span> values will differ by a constant shift compared to the legacy formulation.</p>
 <p>The changes to the code in the model were:</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code html-fill-item html-fill-container" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## survey biomass ----</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## survey biomass ----</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>isrv <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>srv_like <span class="ot">&lt;-</span> <span class="fl">0.0</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
@@ -292,17 +287,9 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>like_srv <span class="ot">&lt;-</span> srv_like <span class="sc">*</span> srv_wt <span class="co"># weighted survey likelihood</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="composition-data-likelihoods" class="level2">
+<h2 class="anchored" data-anchor-id="composition-data-likelihoods">Composition Data Likelihoods</h2>
 <p>Previously, the negative log likelihoods (nLL) for the age and size composition data (fishery and survey) were calculated using a manual sum-of-logs approximation of the multinomial distribution. Observed and predicted proportions were padded with a small constant (<span class="math inline">\(g = 10^{-5}\)</span>) to prevent <span class="math inline">\(\log(0)\)</span> evaluation errors, and an explicit offset term was subtracted so that a perfect fit evaluated to zero:</p>
 <p><span class="math display">\[\text{nLL} = -\sum_{t} \text{ISS}_t \sum_{a} (p_{\text{obs}, t, a} + g) \log(p_{\text{pred}, t, a} + g) - \text{offset}\]</span> where <span class="math inline">\(\text{ISS}_t\)</span> is the input sample size in year <span class="math inline">\(t\)</span>, <span class="math inline">\(p_{\text{obs}, t, a}\)</span> is the observed proportion at age/size <span class="math inline">\(a\)</span>, <span class="math inline">\(p_{\text{pred}, t, a}\)</span> is the predicted proportion, and <span class="math inline">\(\text{offset} = -\sum_{t} \text{ISS}_t \sum_{a} (p_{\text{obs}, t, a} + g) \log(p_{\text{obs}, t, a} + g)\)</span>.In the updated RTMB implementation, composition likelihoods are evaluated using RTMB::dmultinom().</p>
 <p>To match the input requirements of dmultinom:</p>
@@ -312,15 +299,8 @@ grid-auto-rows: minmax(0, 1fr);">
 </ul>
 <p>Because RTMB::dmultinom() evaluates the complete multinomial density function (including normalizing factorial terms), explicit offset calculations are omitted (<span class="math inline">\(\text{offset} = 0\)</span>).</p>
 <p>The code changes for the composition likelihoods (using fishery age as an example) were:</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code html-fill-item html-fill-container" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fishery age comp ----</span></span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## fishery age comp ----</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fish_age_lk <span class="ot">&lt;-</span> <span class="fl">0.0</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>offset <span class="ot">&lt;-</span> <span class="fl">0.0</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>icomp <span class="ot">&lt;-</span> <span class="dv">1</span></span>
@@ -362,28 +342,13 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>fish_age_lk <span class="ot">&lt;-</span> fish_age_lk <span class="sc">-</span> offset</span>
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>like_fish_age <span class="ot">&lt;-</span> fish_age_lk <span class="sc">*</span> fish_age_wt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
-</div>
-<div class="bslib-grid" style="display: grid; grid-template-columns: minmax(3em, 1fr) minmax(3em, 1fr);
-grid-auto-rows: minmax(0, 1fr);">
-<div class="card bslib-card html-fill-container" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
+</section>
+<section id="implementation-changes" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-changes">Implementation changes</h2>
 <p>Last, the manually coded log-densitity formulations of prior penalities on natural mortality (<em>M</em>), catchability (<em>q</em>), and recruitment variability (<span class="math inline">\(\sigma_R\)</span>), were updated to use the RTMB’s built-in statistical function, <code>RTMB::dnorm</code>. The only mathematical difference between these formulations is that the manual version drops the normalization constant term (<span class="math inline">\(\log(\sigma \sqrt{2\pi})\)</span>). Consequently, the parameters point estimates will generally remain identical, but the total nLL value will shift by a constant offset.</p>
 <p>The code changes were as follows:</p>
-</div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div class="card cell bslib-card html-fill-container" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
-<div class="card-body html-fill-item html-fill-container">
-<div class="code-copy-outer-scaffold html-fill-item html-fill-container"><div class="sourceCode cell-code html-fill-item html-fill-container" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (like_type <span class="sc">==</span> <span class="st">"admb"</span>) {</span>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (like_type <span class="sc">==</span> <span class="st">"admb"</span>) {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  nll_M <span class="ot">&lt;-</span> (<span class="fu">log</span>(M) <span class="sc">-</span> <span class="fu">log</span>(mean_M))<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> cv_M<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  nll_q <span class="ot">&lt;-</span> (<span class="fu">log</span>(q) <span class="sc">-</span> <span class="fu">log</span>(mean_q))<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> cv_q<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  nll_sigmaR <span class="ot">&lt;-</span> (<span class="fu">log</span>(sigmaR <span class="sc">/</span> mean_sigmaR))<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> cv_sigmaR<span class="sc">^</span><span class="dv">2</span>)</span>
@@ -398,18 +363,11 @@ grid-auto-rows: minmax(0, 1fr);">
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
-    <template>Expand</template>
-    <span class="bslib-full-screen-enter badge rounded-pill">
-        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
-    </span>
-</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div><div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden">
-
-</div>
-</div>
-</div>
 
 
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -812,14 +770,6 @@ grid-auto-rows: minmax(0, 1fr);">
   </script>
 </div> <!-- /content -->
 
-<script type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (_event) {
-  if (window.bslib.Card) {
-    window.bslib.Card.initializeAllCards();
-  }
-}); 
-</script>
-  
 
 
 
