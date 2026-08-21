@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Model Bridging – 2026 GOA POP</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">2026 GOA POP</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Model descriptions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./02-data.html"> 
+<span class="menu-text">Data updates</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./model.qmd"> 
+<span class="menu-text">Structural updates</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./bridge.html" aria-current="page"> 
+<span class="menu-text">Model Bridging</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#admb-to-rtmb" id="toc-admb-to-rtmb" class="nav-link active" data-scroll-target="#admb-to-rtmb">ADMB to RTMB</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Model Bridging</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="admb-to-rtmb" class="level3">
+<h3 class="anchored" data-anchor-id="admb-to-rtmb">ADMB to RTMB</h3>
+<p>The Gulf of Alaska Pacific Ocean Perch stock assessment is currently in a bespoke ADMB model framework. The ADMB program is in the process of an ‘orderly shutdown of development’ (see: <a href="http://admb-foundation.org/wp-content/uploads/2023/05/ADMB_Foundation_meeting_2022-04-28.pdf">ADMB</a>) and Template Model Builder (TMB) is a viable alternative for fishery stock assessment development. TMB is widely seen as the successor to ADMB, though there are some noted differences (e.g., TMB has no native phasing, so all parameters are estimated simultaneously). RTMB allows for accessing most of the utility found in TMB but the models can be written entirely in R rather than C++ (RTMB 2024).</p>
+<p>The RTMB assessment model and the associated comparison code are available on GitHub.</p>
+<ul>
+<li><a href="https://github.com/noaa-afsc/goa_pop/blob/main/2025/R/models.R">RTMB Model Code:</a></li>
+<li><a href="https://github.com/noaa-afsc/goa_pop/blob/main/2025/rtmb_bridge/rtmb_bridge.R">ADMB vs.&nbsp;RTMB Comparison Code:</a>.</li>
+</ul>
+<p>A key difference between the ADMB and RTMB models is that parameters for the logistic function describing maturity-at-age are estimated conditionally in the ADMB model. These parameter values are identical to estimating maturity-at-age independently via GLM. Estimating maturity-at-age parameters conditionally influences the model only through the evaluation of uncertainty, as the MCMC procedure includes variability in the maturity parameters in conjunction with variability in all other parameters, rather than assuming the maturity parameters are fixed. Thus, estimation of maturity-at-age within the ADMB assessment model allows for uncertainty in maturation to be incorporated into uncertainty for key model results (e.g., SSB), though estimates of other parameters are not effected. Moving maturity estimation outside of the model permits easier implementation of alternative functional forms and does not impact estimation of other model parameters.</p>
+<p>Using ADMB Model 2020.1 MLE estimates as input values in Model 25.0 produces the same model predictions (<strong>?@tbl-par</strong>), and when optimized from there the same standard errors (uncertainties) for parameters and derived quantities. Negative log-likelihood values are nearly identical, differing by a few decimal points (<a href="#tbl-like" class="quarto-xref">Table&nbsp;1</a>). Comparison shows that the RTMB model results are consistent with the ADMB version (<a href="#fig-bio" class="quarto-xref">Figure&nbsp;1</a>, <strong>?@fig-slx</strong>), with negligible differences that arise from numerical precision.</p>
+<div style="page-break-after: always;"></div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>files <span class="ot">=</span> <span class="st">"~/assessments/goa_pop/"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RTMButils)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afscassess)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afscdata)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(afscassess<span class="sc">::</span><span class="fu">theme_report</span>())</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="fu">paste0</span>(files, <span class="st">"2025/r/models.R"</span>))</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># globals ---- </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">25</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>years <span class="ot">=</span> <span class="dv">1961</span><span class="sc">:</span><span class="dv">2023</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>length_bins <span class="ot">=</span> <span class="dv">16</span><span class="sc">:</span><span class="dv">45</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Get ADMB model outputs from 2023 run.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bridge data and results from 2023 ADMB model</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>REP <span class="ot">=</span> <span class="fu">readLines</span>(<span class="st">"~/assessments/goa_pop/2025/base/model_20_1.rep"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>PAR <span class="ot">=</span> <span class="fu">readLines</span>(<span class="st">"~/assessments/goa_pop/2025/base/model_20_1.par"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>STD <span class="ot">=</span> <span class="fu">read_table</span>(<span class="st">"~/assessments/goa_pop/2025/base/model_20_1.std"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>DAT <span class="ot">=</span> <span class="fu">readLines</span>(<span class="st">"~/assessments/goa_pop/2025/base/goa_pop_2023.dat"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>CTL <span class="ot">=</span> <span class="fu">readLines</span>(<span class="st">"~/assessments/goa_pop/2025/base/goa_pop_2023.ctl"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>a50_vals <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">ba502:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]), <span class="fu">exp</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">ba50:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>])), <span class="fu">exp</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">ba503:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>])))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>delta_vals <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">bdelta2:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]), <span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">bdelta:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]),<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">bdelta3:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Run RTMB model</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2023 data &amp; pars from ADMB model</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data0 <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(files, <span class="st">"2025/rtmb_bridge/data.rds"</span>))</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>pars0 <span class="ot">=</span> <span class="fu">readRDS</span>(<span class="fu">paste0</span>(files, <span class="st">"2025/rtmb_bridge/pars.rds"</span>))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># original ADMB starting pars</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>pars1 <span class="ot">=</span> <span class="fu">list</span>(<span class="at">log_M =</span> <span class="fu">log</span>(<span class="fl">0.0614</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_a50C =</span> <span class="fu">log</span>(<span class="fu">c</span>(<span class="dv">6</span>, <span class="fl">2.5</span>, <span class="fl">2.5</span>)),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">deltaC =</span> <span class="fu">c</span>(<span class="fl">1.5</span>,<span class="fl">4.5</span>, <span class="fl">4.5</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_a50S =</span> <span class="fu">log</span>(<span class="fl">7.3</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">deltaS =</span> <span class="fl">3.8</span>,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_q =</span> <span class="fu">log</span>(<span class="fl">1.15</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_mean_R =</span> <span class="fl">3.0</span>,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">init_log_Rt =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">26</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_Rt =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">sum</span>(data0<span class="sc">$</span>catch_ind)),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_mean_F =</span> <span class="dv">0</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_Ft =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="fu">sum</span>(data0<span class="sc">$</span>catch_ind)),</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_F35 =</span> <span class="dv">0</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_F40 =</span> <span class="dv">0</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">log_F50 =</span> <span class="dv">0</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>            <span class="at">sigmaR =</span> <span class="fl">1.7</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># limits used in ADMB</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># limits ----</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>lower <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_M =</span> <span class="fu">log</span>(<span class="fl">0.03</span>),           <span class="co"># Minimum natural mortality</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_a50C =</span> <span class="fu">rep</span>(<span class="fu">log</span>(<span class="fl">0.5</span>), <span class="dv">3</span>), <span class="co"># Minimum age at 50% selectivity</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">deltaC =</span> <span class="fu">rep</span>(<span class="fl">0.1</span>, <span class="dv">3</span>),        <span class="co"># Minimum selectivity slope</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_a50S =</span> <span class="fu">log</span>(<span class="fl">0.5</span>),         <span class="co"># Minimum survey selectivity age</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">deltaS =</span> <span class="fl">0.1</span>,                <span class="co"># Minimum survey selectivity slope</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_q =</span> <span class="fu">log</span>(<span class="fl">0.01</span>),           <span class="co"># Minimum catchability</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_mean_R =</span> <span class="dv">2</span>,              <span class="co"># Minimum mean recruitment</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">init_log_Rt =</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">26</span>),  <span class="co"># Minimum initial recruitment devs</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_Rt =</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="fu">sum</span>(data0<span class="sc">$</span>catch_ind)), <span class="co"># Minimum recruitment devs</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_mean_F =</span> <span class="sc">-</span><span class="dv">5</span>,             <span class="co"># Minimum mean fishing mortality</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_Ft =</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="fu">sum</span>(data0<span class="sc">$</span>catch_ind)), <span class="co"># Minimum F devs</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_F35 =</span> <span class="sc">-</span><span class="dv">5</span>,               <span class="co"># Minimum F35</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_F40 =</span> <span class="sc">-</span><span class="dv">5</span>,               <span class="co"># Minimum F40</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_F50 =</span> <span class="sc">-</span><span class="dv">5</span>,               <span class="co"># Minimum F50</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigmaR =</span> <span class="fl">0.1</span>                <span class="co"># Minimum recruitment SD</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>upper <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_M =</span> <span class="fu">log</span>(<span class="fl">0.27</span>),           <span class="co"># Maximum natural mortality</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_a50C =</span> <span class="fu">rep</span>(<span class="fu">log</span>(<span class="dv">20</span>), <span class="dv">3</span>), <span class="co"># Maximum age at 50% selectivity</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">deltaC =</span> <span class="fu">rep</span>(<span class="dv">20</span>, <span class="dv">3</span>),        <span class="co"># Maximum selectivity slope</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_a50S =</span> <span class="fu">log</span>(<span class="dv">20</span>),         <span class="co"># Maximum survey selectivity age</span></span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  <span class="at">deltaS =</span> <span class="dv">20</span>,                <span class="co"># Maximum survey selectivity slope</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_q =</span> <span class="fu">log</span>(<span class="dv">10</span>),            <span class="co"># Maximum catchability</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_mean_R =</span> <span class="dv">10</span>,            <span class="co"># Maximum mean recruitment</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>  <span class="at">init_log_Rt =</span> <span class="fu">rep</span>(<span class="dv">10</span>, <span class="dv">26</span>),  <span class="co"># Maximum initial recruitment devs</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_Rt =</span> <span class="fu">rep</span>(<span class="dv">10</span>, <span class="fu">sum</span>(data0<span class="sc">$</span>catch_ind)), <span class="co"># Maximum recruitment devs</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_mean_F =</span> <span class="dv">1</span>,             <span class="co"># Maximum mean fishing mortality</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_Ft =</span> <span class="fu">rep</span>(<span class="dv">5</span>, <span class="fu">sum</span>(data0<span class="sc">$</span>catch_ind)),  <span class="co"># Maximum F devs</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_F35 =</span> <span class="dv">1</span>,                <span class="co"># Maximum F35</span></span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_F40 =</span> <span class="dv">1</span>,                <span class="co"># Maximum F40</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_F50 =</span> <span class="dv">1</span>,                <span class="co"># Maximum F50</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigmaR =</span> <span class="fl">1.5</span>                  <span class="co"># Maximum recruitment SD</span></span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">capture.output</span>( m23 <span class="ot">&lt;-</span> <span class="fu">run_model</span>(base, data0, pars1, <span class="at">lower =</span> lower, <span class="at">upper =</span> upper) )) <span class="co"># original starting values and limits</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Examine projected output for 2024 &amp; 2025, and the model fit diagnostics.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>m23<span class="sc">$</span>proj</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year spawn_bio  tot_bio catch_abc catch_ofl        F40       F35
+1 2024  227991.2 649941.1  39718.89  47466.29 0.09901054 0.1192435
+2 2025  221165.0 628231.2  38335.23  45813.07 0.09901054 0.1192435</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fit_check</span>(m23)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>outer mgc:  1.003836e-12 
+outer mgc:  1.003836e-12 
+Is the Hessian positive definite: TRUE 
+The maximum gradiant is: 1.003836e-12 
+The gradiant is &lt; 1e-5: TRUE</code></pre>
+</div>
+</div>
+<p>Examine match up between ADMB and RTMB estimates.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compare ----</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="do">## SD</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>(<span class="fu">summary</span>(m23<span class="sc">$</span>sd)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  tibble<span class="sc">::</span><span class="fu">rownames_to_column</span>(<span class="st">"name"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">value =</span> Estimate, <span class="at">std.dev =</span> <span class="st">`</span><span class="at">Std. Error</span><span class="st">`</span>)<span class="ot">-&gt;</span> sds</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(<span class="fu">filter</span>(STD, name<span class="sc">==</span><span class="st">'log_F_devs'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="fu">mutate</span>(<span class="at">name =</span> <span class="st">"log_Ft"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ll =</span> value <span class="sc">-</span> std.dev,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">id =</span> <span class="st">'ADMB'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(sds <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(name, <span class="st">"Ft"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>, <span class="st">""</span>, name),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ll =</span> value <span class="sc">-</span>std.dev,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">id =</span> <span class="st">"RTMB"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">filter</span>(STD, name<span class="sc">==</span><span class="st">'pred_rec'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="st">"recruits"</span>,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>         <span class="at">ll =</span> value <span class="sc">-</span> std.dev,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>         <span class="at">id =</span> <span class="st">'ADMB'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(sds <span class="sc">%&gt;%</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(name, <span class="st">"recruits"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>, <span class="st">""</span>, name),</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>                     <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ll =</span> value <span class="sc">-</span>std.dev,</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>                     <span class="at">id =</span> <span class="st">"RTMB"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(<span class="fu">filter</span>(STD, name<span class="sc">==</span><span class="st">'spawn_biom'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="st">"spawn_bio"</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>         <span class="at">ll =</span> value <span class="sc">-</span> std.dev,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>         <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>         <span class="at">id =</span> <span class="st">'ADMB'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(sds <span class="sc">%&gt;%</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(name, <span class="st">"spawn_bio"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>, <span class="st">""</span>, name),</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>                     <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ll =</span> value <span class="sc">-</span>std.dev,</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>                     <span class="at">id =</span> <span class="st">"RTMB"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">filter</span>(STD, name<span class="sc">==</span><span class="st">'tot_biom'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="st">"tot_bio"</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>         <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>         <span class="at">ll =</span> value <span class="sc">-</span> std.dev,</span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>         <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>         <span class="at">id =</span> <span class="st">'ADMB'</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(sds <span class="sc">%&gt;%</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(name, <span class="st">"tot_bio"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>              <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">gsub</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d+"</span>, <span class="st">""</span>, name),</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>                     <span class="at">year =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>years,</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ll =</span> value <span class="sc">-</span>std.dev,</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ul =</span> value <span class="sc">+</span> std.dev,</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>                     <span class="at">id =</span> <span class="st">"RTMB"</span>)) <span class="sc">%&gt;%</span>  </span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, value, year, ll, ul, <span class="at">Model =</span> id) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">case_when</span>(name<span class="sc">==</span><span class="st">'spawn_bio'</span> <span class="sc">~</span> <span class="st">"Spawning Biomass"</span>,</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>                          name<span class="sc">==</span><span class="st">'tot_bio'</span> <span class="sc">~</span> <span class="st">"Total Biomass"</span>,</span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>                          name<span class="sc">==</span><span class="st">'log_Ft'</span> <span class="sc">~</span> <span class="st">"Log Fishing Mortality Devs"</span>,</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>                          name<span class="sc">==</span><span class="st">'recruits'</span> <span class="sc">~</span> <span class="st">"Recruitment"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(year, value, <span class="at">color =</span> Model, <span class="at">fill =</span> Model, <span class="at">linetype =</span> Model)) <span class="sc">+</span> </span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ll, <span class="at">ymax=</span>ul), <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a>  scico<span class="sc">::</span><span class="fu">scale_color_scico_d</span>(<span class="at">end =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a>  scico<span class="sc">::</span><span class="fu">scale_fill_scico_d</span>(<span class="at">end =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Year"</span>) <span class="sc">+</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-bio" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-pos="!h">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="bridge_files/figure-html/fig-bio-1.png" style="height:6.5in" data-fig-pos="!h" width="672" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bio-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Comparison of key model outputs from the ADMB and RTMB Pacific ocean perch assessment models with associated standard deviations (shaded areas).
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Explore differences between key parameters</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-par</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Key parameters and output values for comparing the GOA Pacific ocean perch assessment coded in ADMB and RTMB."</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># key parameters ----</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>tot <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"TotalBiomass for 2024"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"Female_Spawning Biomass for 2024"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>ofl <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bOFL for 2024"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>fofl <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"F_OFL for 2024"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>abc <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">bABC for 2024"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>b40 <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"B_40"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>fabc <span class="ot">=</span> <span class="fu">as.numeric</span>(REP[<span class="fu">grep</span>(<span class="st">"F_ABC for 2024"</span>, REP)<span class="sc">+</span><span class="dv">1</span>])</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>prj <span class="ot">=</span> m23<span class="sc">$</span>proj[<span class="dv">1</span>,]</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>a50_vals <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">ba502:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]), <span class="fu">exp</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">ba50:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>])), <span class="fu">exp</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">ba503:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>])))</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>delta_vals <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">bdelta2:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]), <span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">bdelta:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]),<span class="fu">as.numeric</span>(PAR[<span class="fu">grep</span>(<span class="st">'</span><span class="sc">\\</span><span class="st">bdelta3:'</span>, PAR)<span class="sc">+</span><span class="dv">1</span>]))</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>pars <span class="ot">=</span> pars0</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">Item =</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"q"</span>, <span class="st">"Log mean recruitment"</span>, <span class="st">"Log mean F"</span>, <span class="st">'a50_1'</span>, <span class="st">'delta_1'</span>, <span class="st">'a50_3'</span>, <span class="st">'delta_3'</span>, <span class="st">'a50_4'</span>, <span class="st">'delta_4'</span>, <span class="st">'a50_survey'</span>, <span class="st">'delta_survey'</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"2024 Total biomass"</span>, <span class="st">"2024 Spawning biomass"</span>, <span class="st">"B40"</span>, <span class="st">"2024 OFL"</span>, <span class="st">"2024 F OFL"</span>, <span class="st">" 2024 ABC"</span>, <span class="st">"2024 F ABC"</span>),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">ADMB =</span> <span class="fu">round</span>(<span class="fu">c</span>(<span class="fu">exp</span>(pars<span class="sc">$</span>log_M), <span class="fu">exp</span>(pars<span class="sc">$</span>log_q), pars<span class="sc">$</span>log_mean_R, pars<span class="sc">$</span>log_mean_F, (a50_vals)[<span class="dv">1</span>], </span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                          pars<span class="sc">$</span>deltaC[<span class="dv">1</span>], (a50_vals)[<span class="dv">2</span>], pars<span class="sc">$</span>deltaC[<span class="dv">2</span>], (a50_vals)[<span class="dv">3</span>], pars<span class="sc">$</span>deltaC[<span class="dv">3</span>], </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">exp</span>(pars<span class="sc">$</span>log_a50S), pars<span class="sc">$</span>deltaS, tot, sp, b40, ofl, fofl, abc, fabc), <span class="dv">4</span>),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>           <span class="at">RTMB =</span> <span class="fu">round</span>(<span class="fu">c</span>(m23<span class="sc">$</span>rpt<span class="sc">$</span>M, m23<span class="sc">$</span>rpt<span class="sc">$</span>q, m23<span class="sc">$</span>rpt<span class="sc">$</span>log_mean_R, m23<span class="sc">$</span>rpt<span class="sc">$</span>log_mean_F, m23<span class="sc">$</span>rpt<span class="sc">$</span>a50C[<span class="dv">1</span>], m23<span class="sc">$</span>rpt<span class="sc">$</span>deltaC[<span class="dv">1</span>], </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                          m23<span class="sc">$</span>rpt<span class="sc">$</span>a50C[<span class="dv">2</span>], m23<span class="sc">$</span>rpt<span class="sc">$</span>deltaC[<span class="dv">2</span>], m23<span class="sc">$</span>rpt<span class="sc">$</span>a50C[<span class="dv">3</span>], m23<span class="sc">$</span>rpt<span class="sc">$</span>deltaC[<span class="dv">3</span>], m23<span class="sc">$</span>rpt<span class="sc">$</span>a50S, m23<span class="sc">$</span>rpt<span class="sc">$</span>deltaS,</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                          prj<span class="sc">$</span>tot_bio, prj<span class="sc">$</span>spawn_bio, m23<span class="sc">$</span>rpt<span class="sc">$</span>B40, prj<span class="sc">$</span>catch_ofl, prj<span class="sc">$</span>F35, prj<span class="sc">$</span>catch_abc, prj<span class="sc">$</span>F40),<span class="dv">4</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Difference =</span> ADMB <span class="sc">-</span> RTMB) <span class="ot">-&gt;</span> par_tbl</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>par_tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">width</span>(<span class="at">j =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">1.5</span>)  <span class="sc">%&gt;%</span> </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">colformat_double</span>(</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">i =</span> <span class="fu">c</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">16</span>,<span class="dv">18</span>),  <span class="at">j =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">big.mark =</span> <span class="st">","</span>,</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">digits =</span> <span class="dv">2</span>,</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">na_str =</span> <span class="st">"N/A"</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-a17f9a4a{}.cl-a082ed90{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a15f0a82{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a15f0ab4{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a1604924{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604942{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604956{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604957{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a160496a{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a160496b{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604974{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604975{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604988{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604989{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a160499c{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049a6{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049b0{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049b1{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049c4{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049ce{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049cf{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049d8{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049e2{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049ec{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049f6{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a16049f7{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a0a{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a14{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a1e{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a28{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a32{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a33{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a3c{width:1.22in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1604a46{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a17f9a4a"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a1604924"><p class="cl-a15f0a82"><span class="cl-a082ed90">Item</span></p></th><th class="cl-a1604942"><p class="cl-a15f0ab4"><span class="cl-a082ed90">ADMB</span></p></th><th class="cl-a1604942"><p class="cl-a15f0ab4"><span class="cl-a082ed90">RTMB</span></p></th><th class="cl-a1604956"><p class="cl-a15f0ab4"><span class="cl-a082ed90">Difference</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a1604957"><p class="cl-a15f0a82"><span class="cl-a082ed90">M</span></p></td><td class="cl-a160496a"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0743</span></p></td><td class="cl-a160496a"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0743</span></p></td><td class="cl-a160496b"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604957"><p class="cl-a15f0a82"><span class="cl-a082ed90">q</span></p></td><td class="cl-a160496a"><p class="cl-a15f0ab4"><span class="cl-a082ed90">1.7361</span></p></td><td class="cl-a160496a"><p class="cl-a15f0ab4"><span class="cl-a082ed90">1.7361</span></p></td><td class="cl-a160496b"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604974"><p class="cl-a15f0a82"><span class="cl-a082ed90">Log mean recruitment</span></p></td><td class="cl-a1604975"><p class="cl-a15f0ab4"><span class="cl-a082ed90">4.4492</span></p></td><td class="cl-a1604975"><p class="cl-a15f0ab4"><span class="cl-a082ed90">4.4492</span></p></td><td class="cl-a1604988"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604974"><p class="cl-a15f0a82"><span class="cl-a082ed90">Log mean F</span></p></td><td class="cl-a1604975"><p class="cl-a15f0ab4"><span class="cl-a082ed90">-2.6131</span></p></td><td class="cl-a1604975"><p class="cl-a15f0ab4"><span class="cl-a082ed90">-2.6131</span></p></td><td class="cl-a1604988"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604989"><p class="cl-a15f0a82"><span class="cl-a082ed90">a50_1</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">6.2965</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">6.2965</span></p></td><td class="cl-a16049a6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604989"><p class="cl-a15f0a82"><span class="cl-a082ed90">delta_1</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">1.9582</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">1.9582</span></p></td><td class="cl-a16049a6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604989"><p class="cl-a15f0a82"><span class="cl-a082ed90">a50_3</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">12.4767</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">12.4767</span></p></td><td class="cl-a16049a6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604989"><p class="cl-a15f0a82"><span class="cl-a082ed90">delta_3</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">5.0275</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">5.0275</span></p></td><td class="cl-a16049a6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604989"><p class="cl-a15f0a82"><span class="cl-a082ed90">a50_4</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">16.4235</span></p></td><td class="cl-a160499c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">16.4235</span></p></td><td class="cl-a16049a6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049b0"><p class="cl-a15f0a82"><span class="cl-a082ed90">delta_4</span></p></td><td class="cl-a16049b1"><p class="cl-a15f0ab4"><span class="cl-a082ed90">9.6824</span></p></td><td class="cl-a16049b1"><p class="cl-a15f0ab4"><span class="cl-a082ed90">9.6824</span></p></td><td class="cl-a16049c4"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049ce"><p class="cl-a15f0a82"><span class="cl-a082ed90">a50_survey</span></p></td><td class="cl-a16049cf"><p class="cl-a15f0ab4"><span class="cl-a082ed90">5.4801</span></p></td><td class="cl-a16049cf"><p class="cl-a15f0ab4"><span class="cl-a082ed90">5.4801</span></p></td><td class="cl-a16049d8"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604974"><p class="cl-a15f0a82"><span class="cl-a082ed90">delta_survey</span></p></td><td class="cl-a1604975"><p class="cl-a15f0ab4"><span class="cl-a082ed90">5.8192</span></p></td><td class="cl-a1604975"><p class="cl-a15f0ab4"><span class="cl-a082ed90">5.8192</span></p></td><td class="cl-a1604988"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049e2"><p class="cl-a15f0a82"><span class="cl-a082ed90">2024 Total biomass</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">649,941.00</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">649,941.10</span></p></td><td class="cl-a16049f6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">-0.0979</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049f7"><p class="cl-a15f0a82"><span class="cl-a082ed90">2024 Spawning biomass</span></p></td><td class="cl-a1604a0a"><p class="cl-a15f0ab4"><span class="cl-a082ed90">227,991.00</span></p></td><td class="cl-a1604a0a"><p class="cl-a15f0ab4"><span class="cl-a082ed90">227,991.17</span></p></td><td class="cl-a1604a14"><p class="cl-a15f0ab4"><span class="cl-a082ed90">-0.1668</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049e2"><p class="cl-a15f0a82"><span class="cl-a082ed90">B40</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">137,447.00</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">137,447.16</span></p></td><td class="cl-a16049f6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">-0.1632</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049e2"><p class="cl-a15f0a82"><span class="cl-a082ed90">2024 OFL</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">47,466.30</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">47,466.29</span></p></td><td class="cl-a16049f6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0082</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604a1e"><p class="cl-a15f0a82"><span class="cl-a082ed90">2024 F OFL</span></p></td><td class="cl-a1604a28"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.1192</span></p></td><td class="cl-a1604a28"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.1192</span></p></td><td class="cl-a1604a32"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a16049e2"><p class="cl-a15f0a82"><span class="cl-a082ed90"> 2024 ABC</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">39,718.90</span></p></td><td class="cl-a16049ec"><p class="cl-a15f0ab4"><span class="cl-a082ed90">39,718.89</span></p></td><td class="cl-a16049f6"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0067</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1604a33"><p class="cl-a15f0a82"><span class="cl-a082ed90">2024 F ABC</span></p></td><td class="cl-a1604a3c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0990</span></p></td><td class="cl-a1604a3c"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0990</span></p></td><td class="cl-a1604a46"><p class="cl-a15f0ab4"><span class="cl-a082ed90">0.0000</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<div style="page-break-after: always;"></div>
+<p>Examine differences in negative log likelihoods.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get ADMB likelihood values</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ssqcatch <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"SSQ Catch Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>srv_like <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Bottom Trawl Survey Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>fa_like <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Fishery Age Composition Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>sa_like <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Bottom Trawl Survey Age Composition Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>ss_like <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Fishery Size Composition Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>recdev <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Recruitment Deviations Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>fmort <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Fishing Mortality Deviations Penalty"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>pM <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Priors M"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>pq <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Priors q"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>pS <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Priors SigmaR"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>spr <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Spawner-recruit penalty"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>datalike <span class="ot">=</span> <span class="fu">round</span>(<span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Data Likelihood"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]), <span class="dv">4</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">Likelihood =</span> <span class="fu">c</span>(<span class="st">"Catch"</span>, <span class="st">"Survey"</span>, <span class="st">"Fish age"</span>, <span class="st">"Survey age"</span>, <span class="st">"Fish size"</span>, <span class="st">"Recruitment"</span>, <span class="st">"F regularity"</span>, <span class="st">"SPR penalty"</span>, <span class="st">"M prior"</span>, <span class="st">"q prior"</span>, <span class="st">"Sigma R prior"</span>, <span class="st">"Sub total"</span>),</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">ADMB =</span> <span class="fu">c</span>(ssqcatch, srv_like, fa_like, sa_like, ss_like, recdev, fmort, spr, pM, pq, pS, </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">sum</span>(<span class="fu">c</span>(ssqcatch, srv_like, fa_like, sa_like, ss_like, recdev, fmort, spr, pM, pq, pS))),</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">RTMB =</span> <span class="fu">round</span>(<span class="fu">c</span>(m23<span class="sc">$</span>rpt<span class="sc">$</span>ssqcatch, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_srv, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_fish_age, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_srv_age, </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                          m23<span class="sc">$</span>rpt<span class="sc">$</span>like_fish_size, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_rec, m23<span class="sc">$</span>rpt<span class="sc">$</span>f_regularity,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>                          m23<span class="sc">$</span>rpt<span class="sc">$</span>sprpen, m23<span class="sc">$</span>rpt<span class="sc">$</span>nll_M, m23<span class="sc">$</span>rpt<span class="sc">$</span>nll_q, m23<span class="sc">$</span>rpt<span class="sc">$</span>nll_sigmaR, </span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">sum</span>(<span class="fu">c</span>(m23<span class="sc">$</span>rpt<span class="sc">$</span>ssqcatch, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_srv, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_fish_age, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_srv_age, </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                                m23<span class="sc">$</span>rpt<span class="sc">$</span>like_fish_size, m23<span class="sc">$</span>rpt<span class="sc">$</span>like_rec, m23<span class="sc">$</span>rpt<span class="sc">$</span>f_regularity,</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>                                m23<span class="sc">$</span>rpt<span class="sc">$</span>sprpen, m23<span class="sc">$</span>rpt<span class="sc">$</span>nll_M, m23<span class="sc">$</span>rpt<span class="sc">$</span>nll_q, m23<span class="sc">$</span>rpt<span class="sc">$</span>nll_sigmaR))), <span class="dv">4</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Difference =</span>  ADMB <span class="sc">-</span> RTMB) <span class="ot">-&gt;</span> like_tbl</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>like_tbl <span class="sc">%&gt;%</span> </span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Likelihood =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(Likelihood<span class="sc">==</span><span class="st">'Survey'</span> <span class="sc">~</span> <span class="st">'Survey biomass'</span>,</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                                              Likelihood<span class="sc">==</span><span class="st">'Fish age'</span> <span class="sc">~</span> <span class="st">'Fishery age comp'</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                                              Likelihood<span class="sc">==</span><span class="st">'Fish size'</span> <span class="sc">~</span> <span class="st">'Fishery length comp'</span>,</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>                                              Likelihood<span class="sc">==</span><span class="st">'Survey age'</span> <span class="sc">~</span> <span class="st">'Survey age comp'</span>,</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>                                              Likelihood<span class="sc">==</span><span class="st">'Recruitment'</span> <span class="sc">~</span> <span class="st">'Recruitment devs'</span>,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>                                              <span class="cn">TRUE</span> <span class="sc">~</span> Likelihood)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">rename</span>(<span class="at">nLL =</span> Likelihood) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">flextable</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">autofit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  flextable<span class="sc">::</span><span class="fu">width</span>(<span class="at">j =</span> <span class="dv">1</span>, <span class="at">width =</span> <span class="fl">1.5</span>)  </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="tbl-like" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-like-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Model negative log likelihood (nLL) values for comparing the GOA Pacific ocean perch assessment coded in ADMB and RTMB. Note that ‘Sub total’ is used as the ADMB model also has nLL values for 2 maturity parameters that are not present here.
+</figcaption>
+<div aria-describedby="tbl-like-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid"><style>.cl-a20128e4{}.cl-a1df4bd4{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a1ea09d4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a1ea09f2{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a1ea70ae{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70c2{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70d6{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70e0{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70ea{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70eb{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70ec{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70fe{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea70ff{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7108{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7109{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7112{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea711c{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7126{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7127{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7130{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea713a{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea713b{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea713c{width:1.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea7144{width:0.922in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a1ea714e{width:0.981in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-a20128e4"><thead><tr style="overflow-wrap:break-word;"><th class="cl-a1ea70ae"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">nLL</span></p></th><th class="cl-a1ea70c2"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">ADMB</span></p></th><th class="cl-a1ea70c2"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">RTMB</span></p></th><th class="cl-a1ea70d6"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">Difference</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-a1ea70e0"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Catch</span></p></td><td class="cl-a1ea70ea"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.2181</span></p></td><td class="cl-a1ea70ea"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.2181</span></p></td><td class="cl-a1ea70eb"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea70ec"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Survey biomass</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">16.4416</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">16.4416</span></p></td><td class="cl-a1ea70ff"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea7108"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Fishery age comp</span></p></td><td class="cl-a1ea7109"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">25.0028</span></p></td><td class="cl-a1ea7109"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">25.0028</span></p></td><td class="cl-a1ea7112"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea70ec"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Survey age comp</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">29.2822</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">29.2822</span></p></td><td class="cl-a1ea70ff"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea7108"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Fishery length comp</span></p></td><td class="cl-a1ea7109"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">66.2258</span></p></td><td class="cl-a1ea7109"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">66.2259</span></p></td><td class="cl-a1ea7112"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">-0.0001</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea711c"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Recruitment devs</span></p></td><td class="cl-a1ea7126"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">10.6027</span></p></td><td class="cl-a1ea7126"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">10.6027</span></p></td><td class="cl-a1ea7127"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea7108"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">F regularity</span></p></td><td class="cl-a1ea7109"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">6.1405</span></p></td><td class="cl-a1ea7109"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">6.1405</span></p></td><td class="cl-a1ea7112"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea70ec"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">SPR penalty</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td><td class="cl-a1ea70ff"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea7130"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">M prior</span></p></td><td class="cl-a1ea713a"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">1.8299</span></p></td><td class="cl-a1ea713a"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">1.8299</span></p></td><td class="cl-a1ea713b"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea7130"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">q prior</span></p></td><td class="cl-a1ea713a"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.4241</span></p></td><td class="cl-a1ea713a"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.4241</span></p></td><td class="cl-a1ea713b"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea70ec"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Sigma R prior</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">7.9849</span></p></td><td class="cl-a1ea70fe"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">7.9849</span></p></td><td class="cl-a1ea70ff"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">0.0000</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-a1ea713c"><p class="cl-a1ea09d4"><span class="cl-a1df4bd4">Sub total</span></p></td><td class="cl-a1ea7144"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">164.1526</span></p></td><td class="cl-a1ea7144"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">164.1527</span></p></td><td class="cl-a1ea714e"><p class="cl-a1ea09f2"><span class="cl-a1df4bd4">-0.0001</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Explore selectivity outputs between the ADMB and RTMB models.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| out-height: "6.5in"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-slx</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-pos: "!h"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Comparison of fishery (4 time blocks) and survey selectivity from the ADMB and RTMB Pacific ocean perch assessment models."</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># basic comparison plots ----</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># admb slx</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">age =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">29</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">X1 =</span> <span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Selectivity"</span>, REP)[[<span class="dv">1</span>]]], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">X2 =</span> <span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Selectivity"</span>, REP)[[<span class="dv">2</span>]]], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">X3 =</span> <span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Selectivity"</span>, REP)[[<span class="dv">3</span>]]], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">X4 =</span> <span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Selectivity"</span>, REP)[[<span class="dv">4</span>]]], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="sc">-</span><span class="dv">1</span>]),</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">srv_slx =</span> <span class="fu">as.numeric</span>(stringr<span class="sc">::</span><span class="fu">str_split</span>(REP[<span class="fu">grep</span>(<span class="st">"Bottom_Trawl_Survey_Selectivity"</span>, REP)], <span class="st">" "</span>)[[<span class="dv">1</span>]][<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)]),</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>           <span class="at">id =</span> <span class="st">"ADMB"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">data.frame</span>(<span class="at">age =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">29</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>           m23<span class="sc">$</span>rpt<span class="sc">$</span>slx_block,</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">srv_slx =</span> m23<span class="sc">$</span>rpt<span class="sc">$</span>slx_srv,</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">id =</span> <span class="st">"RTMB"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">'Fishery 1'</span> <span class="ot">=</span> X1, <span class="st">'Fishery 2'</span> <span class="ot">=</span> X2, <span class="st">'Fishery 3'</span> <span class="ot">=</span> X3, <span class="st">'Fishery 4'</span> <span class="ot">=</span> X4, <span class="st">"Survey"</span> <span class="ot">=</span> srv_slx, <span class="at">Model =</span> id) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(age, Model)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(age, value, <span class="at">color =</span> Model, <span class="at">linetype =</span> Model)) <span class="sc">+</span> </span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>name, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Age"</span>) <span class="sc">+</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Selectivity"</span>) <span class="sc">+</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>  scico<span class="sc">::</span><span class="fu">scale_colour_scico_d</span>(<span class="at">end=</span><span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.25</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="bridge_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

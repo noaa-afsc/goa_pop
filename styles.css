@@ -1,0 +1,18 @@
+/* css styles */
+/* Shrink the font size of the checkboxes */
+.crosstalk-options label {
+  font-size: 0.85em; 
+  margin-bottom: 2px;
+}
+
+/* Shrink the header text "Choose Models:" */
+.control-label {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+/* Optional: Make the box scrollable if the list gets too long */
+.crosstalk-options {
+  max-height: 300px;
+  overflow-y: auto;
+}

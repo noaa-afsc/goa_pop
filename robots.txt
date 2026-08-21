@@ -1,0 +1,1 @@
+Sitemap: https://afsc-assessments.github.io/goa_pop/sitemap.xml
