@@ -1,3 +1,7 @@
+# Pacific ocean perch model w/switches to match bespoke ADMB
+# likelihoods, or change to RTMB full likelihoods for survey biomass,
+# composition data, catch, and priors
+
 pop_mod <- function(pars, data) {
   require(RTMB)
   "c" <- RTMB::ADoverload("c")
