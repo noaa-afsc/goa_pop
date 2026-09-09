@@ -17,6 +17,7 @@ pop_mod <- function(pars, data) {
   spawn_fract <- (spawn_mo - 1) / 12
   spawn_adj <- exp(-M)^(spawn_fract)
 
+  # dims
   A <- nrow(age_error)
   A1 <- length(ages)
   T <- length(years)
@@ -27,6 +28,7 @@ pop_mod <- function(pars, data) {
   L <- length(length_bins)
   g <- 0.00001
 
+  # containers
   Bat <- Cat <- Nat <- Fat <- Zat <- Sat <- slx_fish <- matrix(0, A, T)
   initNat <- rep(0, A)
   catch_pred <- rep(0, T)
@@ -55,6 +57,7 @@ pop_mod <- function(pars, data) {
   }
 
   # function alt ----
+  # Dirichlet comps - not currently used
   ddirmult <- function(obs, pred, iss, ln_theta, log = TRUE) {
     y_obs <- iss * obs
     dirichlet_parm <- exp(ln_theta) * iss
@@ -66,6 +69,7 @@ pop_mod <- function(pars, data) {
   }
 
   # selectivity ----
+  # functions to match ADMB-style
   to_one <- function(x) {
     x / max(x)
   }
@@ -213,7 +217,6 @@ pop_mod <- function(pars, data) {
   icomp <- 1
   for (t in 1:T) {
     if (fish_age_ind[t] == 1) {
-      # Calculate base predictions (shared between both likelihood types)
       fish_age_pred[, icomp] <- colSums((Cat[, t] / sum(Cat[, t])) * age_error)
 
       switch(
@@ -231,14 +234,14 @@ pop_mod <- function(pars, data) {
             )
         },
         "rtmb" = {
-          # 1. Add robustness constant 'g' and re-normalize so probabilities sum to 1
+          # add constant 'g' and re-normalize so probabilities sum to 1
           pred_prob <- fish_age_pred[, icomp] + g
           pred_prob <- pred_prob / sum(pred_prob)
 
-          # 2. Convert observed proportions to "counts" using the input sample size
+          # cConvert observed proportions to "counts" using the input sample size
           obs_counts <- fish_age_obs[, icomp] * fish_age_iss[icomp]
 
-          # 3. Calculate exact multinomial likelihood
+          # multinomial likelihood
           fish_age_lk <- fish_age_lk -
             RTMB::dmultinom(x = obs_counts, prob = pred_prob, log = TRUE)
         }
@@ -246,7 +249,7 @@ pop_mod <- function(pars, data) {
       icomp <- icomp + 1
     }
   }
-  # Offset shifts ADMB likelihood so a perfect fit = 0.0 (stays 0.0 for RTMB)
+  # offset shifts ADMB likelihood so a perfect fit = 0.0 (stays 0.0 for RTMB)
   fish_age_lk <- fish_age_lk - offset
   like_fish_age <- fish_age_lk * fish_age_wt
 
@@ -256,7 +259,6 @@ pop_mod <- function(pars, data) {
   icomp <- 1
   for (t in 1:T) {
     if (srv_age_ind[t] == 1) {
-      # Calculate base predictions (shared between both likelihood types)
       srv_age_pred[, icomp] <- colSums(
         (Nat[, t] * slx_srv) / sum(Nat[, t] * slx_srv) * age_error
       )
@@ -273,14 +275,14 @@ pop_mod <- function(pars, data) {
               sum((srv_age_obs[, icomp] + g) * log(srv_age_pred[, icomp] + g))
         },
         "rtmb" = {
-          # 1. Add robustness constant 'g' and re-normalize
+          # robustness constant 'g' and re-normalize
           pred_prob <- srv_age_pred[, icomp] + g
           pred_prob <- pred_prob / sum(pred_prob)
 
-          # 2. Convert observed proportions to "counts" using effective sample size
+          # convert observed proportions to "counts" using effective sample size
           obs_counts <- srv_age_obs[, icomp] * srv_age_iss[icomp]
 
-          # 3. Calculate exact multinomial likelihood
+          # calculate multinomial likelihood
           srv_age_lk <- srv_age_lk -
             RTMB::dmultinom(x = obs_counts, prob = pred_prob, log = TRUE)
         }
@@ -288,7 +290,7 @@ pop_mod <- function(pars, data) {
       icomp <- icomp + 1
     }
   }
-  # Offset shifts ADMB likelihood so a perfect fit = 0.0 (stays 0.0 for RTMB)
+  # offset shifts ADMB likelihood so a perfect fit = 0.0 (stays 0.0 for RTMB)
   srv_age_lk <- srv_age_lk - offset_sa
   like_srv_age <- srv_age_lk * srv_age_wt
 
@@ -298,7 +300,6 @@ pop_mod <- function(pars, data) {
   icomp <- 1
   for (t in 1:T) {
     if (fish_size_ind[t] == 1) {
-      # Calculate base predictions (shared between both likelihood types)
       fish_size_pred[, icomp] <- colSums(
         (Cat[, t] / sum(Cat[, t])) * saa_array[,, fish_saa_ind[t]]
       )
@@ -319,14 +320,14 @@ pop_mod <- function(pars, data) {
               )
         },
         "rtmb" = {
-          # 1. Add robustness constant 'g' and re-normalize
+          # robustness constant 'g' and re-normalize
           pred_prob <- fish_size_pred[, icomp] + g
           pred_prob <- pred_prob / sum(pred_prob)
 
-          # 2. Convert observed proportions to "counts" using effective sample size
+          # convert observed proportions to "counts" using effective sample size
           obs_counts <- fish_size_obs[, icomp] * fish_size_iss[icomp]
 
-          # 3. Calculate exact multinomial likelihood
+          # calculate multinomial likelihood
           fish_size_lk <- fish_size_lk -
             RTMB::dmultinom(x = obs_counts, prob = pred_prob, log = TRUE)
         }
@@ -334,7 +335,7 @@ pop_mod <- function(pars, data) {
       icomp <- icomp + 1
     }
   }
-  # Offset shifts ADMB likelihood so a perfect fit = 0.0 (stays 0.0 for RTMB)
+  # offset shifts ADMB likelihood so a perfect fit = 0.0 (stays 0.0 for RTMB)
   fish_size_lk <- fish_size_lk - offset_fs
   like_fish_size <- fish_size_lk * fish_size_wt
 
