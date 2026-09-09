@@ -11,7 +11,7 @@
 # input changes
 # a - use surveyISS for survey_age_iss
 # b - use model-based survey biomass
-# c - use a & b
+# c - use a & b data inputs
 # m25.XXr - Francis reweight
 
 # load ----
@@ -38,12 +38,8 @@ pars0 <- readRDS(here::here(2025, 'rtmb_bridge', "pars.rds"))
 # update data to 2026
 catch <- vroom::vroom(here::here(year, "data", "output", "fish_catch.csv"))
 yld_rat <- vroom::vroom(here::here(year, "data", "output", "yld_rat.csv"))
-srv <- vroom::vroom(here::here(
-  year,
-  "data",
-  "raw",
-  "goa_region_bts_biomass_data.csv"
-)) %>%
+# fmt: skip
+srv <- vroom::vroom(here::here(year, "data", "raw", "goa_region_bts_biomass_data.csv")) %>%
   rename(biomass = biomass_mt) %>%
   mutate(
     cv = sqrt(biomass_var) / biomass,
@@ -181,29 +177,15 @@ upper <- c(
 # 2023 vast
 v23 <- read.csv(here::here(2023, "dev", "mb_vs_db", "vast_2023.csv")) %>%
   filter(Estimate > 0) %>%
-  mutate(
-    est = Estimate / 1000,
-    ef = exp(1.96 * Std..Error.for.ln.Estimate.)
-  ) %>%
+  mutate(est = Estimate / 1000, ef = exp(1.96 * Std..Error.for.ln.Estimate.)) %>%
   mutate(lwr = est / ef, upr = est * ef) %>%
   select(year = Time, est, lwr, upr) %>%
   mutate(id = 'mb-2023', type = "model-based")
 # 2025 sdmTMB
 v25 <- readRDS(here::here(2025, "data", "user_input", "vast_2025.rds")) %>%
-  mutate(
-    id = 'mb-2025',
-    est = est / 1000,
-    lwr = lwr / 1000,
-    upr = upr / 1000,
-    type = "model-based"
-  )
+  mutate(id = 'mb-2025', est = est / 1000, lwr = lwr / 1000, upr = upr / 1000, type = "model-based")
 # 2023 design-based
-b23 <- read.csv(here::here(
-  2023,
-  'data',
-  'output',
-  'goa_total_bts_biomass.csv'
-)) %>%
+b23 <- read.csv(here::here(2023, 'data', 'output', 'goa_total_bts_biomass.csv')) %>%
   mutate(id = 'db-2023', type = "design-based") %>%
   select(year, est = biomass, lwr = lci, upr = uci, id, type)
 
@@ -251,29 +233,11 @@ saveRDS(m23, here::here(year, "alt", "results", "m23.rds"))
 saveRDS(m23r, here::here(year, "alt", "results", "m23r.rds"))
 
 # update to 2026 data
-m25.0 <- run_model(
-  pop_mod,
-  data = data,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
+m25.0 <- run_model(pop_mod, data = data, pars = pars, lower = lower, upper = upper)
 fit_check(m25.0)
-m25.1 <- run_model(
-  pop_mod,
-  data = data1,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
+m25.1 <- run_model(pop_mod, data = data1, pars = pars, lower = lower, upper = upper)
 fit_check(m25.1)
-m25.2 <- run_model(
-  pop_mod,
-  data = data2,
-  pars = parsg,
-  lower = lowerg,
-  upper = upperg
-)
+m25.2 <- run_model(pop_mod, data = data2, pars = parsg, lower = lowerg, upper = upperg)
 fit_check(m25.2)
 
 m25.0$proj
@@ -284,9 +248,9 @@ saveRDS(m25.0, here::here(year, "alt", "results", "m25.0.rds"))
 saveRDS(m25.1, here::here(year, "alt", "results", "m25.1.rds"))
 saveRDS(m25.2, here::here(year, "alt", "results", "m25.2.rds"))
 
-m25.0r <- run_model_reweight(m25.0, max_one = FALSE)$model
-m25.1r <- run_model_reweight(m25.1, max_one = FALSE)$model
-m25.2r <- run_model_reweight(m25.2, max_one = FALSE)$model
+m25.0r <- run_model_reweight(m25.0)$model
+m25.1r <- run_model_reweight(m25.1)$model
+m25.2r <- run_model_reweight(m25.2)$model
 
 fit_check(m25.0r)
 fit_check(m25.1r)
@@ -325,29 +289,11 @@ data1a <- data1
 data2a <- data2
 dataa$srv_age_iss <- data1a$srv_age_iss <- data2a$srv_age_iss <- iss
 
-m25.0a <- run_model(
-  pop_mod,
-  data = dataa,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
+m25.0a <- run_model(pop_mod, data = dataa, pars = pars, lower = lower, upper = upper)
 fit_check(m25.0a)
-m25.1a <- run_model(
-  pop_mod,
-  data = data1a,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
+m25.1a <- run_model(pop_mod, data = data1a, pars = pars, lower = lower, upper = upper)
 fit_check(m25.1a)
-m25.2a <- run_model(
-  pop_mod,
-  data = data2a,
-  pars = parsg,
-  lower = lowerg,
-  upper = upperg
-)
+m25.2a <- run_model(pop_mod, data = data2a, pars = parsg, lower = lowerg, upper = upperg)
 fit_check(m25.2a)
 
 saveRDS(m25.0a, here::here(year, "alt", "results", "m25.0a.rds"))
@@ -355,11 +301,11 @@ saveRDS(m25.1a, here::here(year, "alt", "results", "m25.1a.rds"))
 saveRDS(m25.2a, here::here(year, "alt", "results", "m25.2a.rds"))
 
 
-m25.0ar <- run_model_reweight(m25.0a, max_one = FALSE)$model
+m25.0ar <- run_model_reweight(m25.0a)$model
 fit_check(m25.0ar)
-m25.1ar <- run_model_reweight(m25.1a, max_one = FALSE)$model
+m25.1ar <- run_model_reweight(m25.1a)$model
 fit_check(m25.1ar)
-m25.2ar <- run_model_reweight(m25.2a, max_one = FALSE)$model
+m25.2ar <- run_model_reweight(m25.2a)$model
 fit_check(m25.2ar)
 
 saveRDS(m25.0ar, here::here(year, "alt", "results", "m25.0ar.rds"))
@@ -371,44 +317,25 @@ datab <- data
 data1b <- data1
 data2b <- data2
 data2b$srv_obs <- data1b$srv_obs <- datab$srv_obs <- v25$est
-data2b$srv_sd <- data1b$srv_sd <- datab$srv_sd <- v25$est *
-  sqrt(exp(v25$se^2) - 1) # base model uses sd
+data2b$srv_sd <- data1b$srv_sd <- datab$srv_sd <- v25$est * sqrt(exp(v25$se^2) - 1) # base model uses sd
 data2b$srv_cv <- data1b$srv_cv <- datab$srv_sd / datab$srv_obs
 
-m25.0b <- run_model(
-  pop_mod,
-  data = datab,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
+m25.0b <- run_model(pop_mod, data = datab, pars = pars, lower = lower, upper = upper)
 fit_check(m25.0b)
-m25.1b <- run_model(
-  pop_mod,
-  data = data1b,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
+m25.1b <- run_model(pop_mod, data = data1b, pars = pars, lower = lower, upper = upper)
 fit_check(m25.1b)
-m25.2b <- run_model(
-  pop_mod,
-  data = data2b,
-  pars = parsg,
-  lower = lowerg,
-  upper = upperg
-)
+m25.2b <- run_model(pop_mod, data = data2b, pars = parsg, lower = lowerg, upper = upperg)
 fit_check(m25.2b)
 
 saveRDS(m25.0b, here::here(year, "alt", "results", "m25.0b.rds"))
 saveRDS(m25.1b, here::here(year, "alt", "results", "m25.1b.rds"))
 saveRDS(m25.2b, here::here(year, "alt", "results", "m25.2b.rds"))
 
-m25.0br <- run_model_reweight(m25.0b, max_one = FALSE)$model
+m25.0br <- run_model_reweight(m25.0b)$model
 fit_check(m25.0br)
-m25.1br <- run_model_reweight(m25.1b, max_one = FALSE)$model
+m25.1br <- run_model_reweight(m25.1b)$model
 fit_check(m25.1br)
-m25.2br <- run_model_reweight(m25.2b, max_one = FALSE)$model
+m25.2br <- run_model_reweight(m25.2b)$model
 fit_check(m25.2br)
 
 saveRDS(m25.0br, here::here(year, "alt", "results", "m25.0br.rds"))
@@ -425,27 +352,9 @@ data2c$srv_sd <- data1c$srv_sd <- datac$srv_sd <- v25$est *
   sqrt(exp(v25$se^2) - 1) # base model uses sd
 data2c$srv_cv <- data1c$srv_cv <- datac$srv_sd / datac$srv_obs
 
-m25.0c <- run_model(
-  pop_mod,
-  data = datac,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
-m25.1c <- run_model(
-  pop_mod,
-  data = data1c,
-  pars = pars,
-  lower = lower,
-  upper = upper
-)
-m25.2c <- run_model(
-  pop_mod,
-  data = data2c,
-  pars = parsg,
-  lower = lowerg,
-  upper = upperg
-)
+m25.0c <- run_model(pop_mod, data = datac, pars = pars, lower = lower, upper = upper)
+m25.1c <- run_model(pop_mod, data = data1c, pars = pars, lower = lower, upper = upper)
+m25.2c <- run_model(pop_mod, data = data2c, pars = parsg, lower = lowerg, upper = upperg)
 
 fit_check(m25.0c)
 fit_check(m25.1c)
@@ -455,11 +364,11 @@ saveRDS(m25.0c, here::here(year, "alt", "results", "m25.0c.rds"))
 saveRDS(m25.1c, here::here(year, "alt", "results", "m25.1c.rds"))
 saveRDS(m25.2c, here::here(year, "alt", "results", "m25.2c.rds"))
 
-m25.0cr <- run_model_reweight(m25.0c, max_one = FALSE)$model
+m25.0cr <- run_model_reweight(m25.0c)$model
 fit_check(m25.0cr)
-m25.1cr <- run_model_reweight(m25.1c, max_one = FALSE)$model
+m25.1cr <- run_model_reweight(m25.1c)$model
 fit_check(m25.1cr)
-m25.2cr <- run_model_reweight(m25.2c, max_one = FALSE)$model
+m25.2cr <- run_model_reweight(m25.2c)$model
 fit_check(m25.2cr)
 
 saveRDS(m25.0cr, here::here(year, "alt", "results", "m25.0cr.rds"))
